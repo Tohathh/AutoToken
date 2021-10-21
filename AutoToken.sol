@@ -25,14 +25,16 @@ modifier checkNameToken {
     //функция по созданию токена
 function creatToken(string model, uint energy, uint maxSpeed) public checkNameToken {
     tvm.accept(); //подтверждение оплаты
+    
     // создаем новый токен, вызываем токен с передачей необходимых параметров и записываем в массив autoArr
     autoArr.push(Token (model, energy, maxSpeed)); 
+    require(model == model, 101); //проверка токена на уникальность имени
     //переменная ключа
     uint keyAsLastNum = autoArr.length - 1;
     // прописываем сопоставлению,что из нашего ключа ссылаемся на владельца
     //msg.pubkey() возвращает открытый ключ отправителя, полученный из тела внешнего входящего сообщения
     tokenToOwner[keyAsLastNum] = msg.pubkey(); 
-    require(tokenToOwner.exists(keyAsLastNum), 101); //проверка токена на уникальность имени
+    //require(tokenToOwner.exists(keyAsLastNum), 101); //проверка токена на уникальность имени??
 }    
 
 // функция владелец токена
