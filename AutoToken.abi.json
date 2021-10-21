@@ -1,0 +1,64 @@
+{
+	"ABI version": 2,
+	"version": "2.1",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "creatToken",
+			"inputs": [
+				{"name":"model","type":"string"},
+				{"name":"energy","type":"uint256"},
+				{"name":"maxSpeed","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getTokenOwner",
+			"inputs": [
+				{"name":"tokenID","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"value0","type":"uint256"}
+			]
+		},
+		{
+			"name": "getTokenInfo",
+			"inputs": [
+				{"name":"tokenId","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"tokenModel","type":"string"},
+				{"name":"tokenEnergy","type":"uint256"},
+				{"name":"tokenMaxSpeed","type":"uint256"}
+			]
+		},
+		{
+			"name": "changeOwner",
+			"inputs": [
+				{"name":"tokenId","type":"uint256"},
+				{"name":"pubkeyofNewOwner","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"components":[{"name":"model","type":"string"},{"name":"energy","type":"uint256"},{"name":"maxSpeed","type":"uint256"}],"name":"autoArr","type":"tuple[]"},
+		{"name":"tokenToOwner","type":"map(uint256,uint256)"}
+	]
+}
